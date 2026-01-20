@@ -1,6 +1,6 @@
 import java.util.*;
 public class Patterns {
-    /*public static void rectangle(){
+    public static void rectangle(){
         for(int i = 0;i <4 ;i++){
             for(int j = 0; j <=4;j++){
                 System.out.print("*");
@@ -34,7 +34,7 @@ public class Patterns {
             }
             System.out.println("");
         }
-    }*/
+    }
     public static void pyramid(int n){
         for(int i = 0;i < n; i++){
             for(int j = 0;j <= i;j++){
