@@ -41,7 +41,35 @@ class lList{
         }
         System.out.println("null");
     }
+    //Detect cycle in linked list
+    public boolean hasCycle(Node head) {
+        if(head == null)return false;
+        Node temp1 = head;
+        Node temp2 = head;
+        while(temp2 != null && temp2.next != null){
+            temp1 = temp1.next;
+            temp2 = temp2.next.next;
+            if(temp1 == temp2)
+            return true;
+        }
+        return false;
+    }
+    
+    //Find intersection point of two linked lists
+    public Node getIntersectionNode(Node headA, Node headB) {
+        if(headA == null || headB == null)return null;
+        Node pA = headA;
+        Node pB = headB;
+
+        while (pA != pB) {
+            pA = (pA == null) ? headB : pA.next;
+            pB = (pB == null) ? headA : pB.next;
+        }
+
+        return pA;
+    }
 }
+
 
 
 
