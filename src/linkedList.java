@@ -15,7 +15,7 @@ class lList{
     Node head; //first node of the list
 
     //Insert at end
-    void insert(int data){
+    void insertEnd(int data){
         Node newNode = new Node(data);
 
         //if list is empty
@@ -30,6 +30,19 @@ class lList{
             temp = temp.next;
         }
         temp.next = newNode;
+    }
+
+    //Insert at Front
+    Node insertFront(int data){
+        Node newNode = new Node(data);
+
+        //if list is empty
+        if(head == null)
+            return newNode;
+
+        //if list is not empty
+        newNode.next = head;
+        return newNode;
     }
 
     //print list
@@ -78,9 +91,9 @@ public class linkedList{
     public static void main(String[] args) {
         lList list = new lList();
 
-        list.insert(10);
-        list.insert(30);
-        list.insert(40);
+        list.insertEnd(10);
+        list.insertEnd(30);
+        list.insertEnd(40);
 
         list.printList();
     }
