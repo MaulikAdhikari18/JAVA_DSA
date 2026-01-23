@@ -8,6 +8,14 @@ public class Recursion {
         return isPowerOfTwo(n/2);
     }
 
+    //Power of Three
+    public boolean isPowerOfThree(int n) {
+        if(n == 1)return true;
+        if(n <= 0)return false;
+        if(n%3 != 0)return false;
+        return isPowerOfThree(n/3);
+    }
+
     //Fibonacci series
     public static int fibo(int n){
         if (n == 1)
