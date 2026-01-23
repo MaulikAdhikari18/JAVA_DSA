@@ -81,6 +81,27 @@ class lList{
 
         return pA;
     }
+    //Remove elements from the list
+
+    public Node removeElements(Node head, int data) {
+        if(head == null) return null;
+        if(head.data == data){
+            while(head.next != null && head.next.data == data){    
+                head = head.next;
+            }
+            head = head.next;
+        }
+        if(head == null)return null;
+        
+        Node temp = head;
+        while(temp.next != null){
+            if(temp.next.data == data){
+                temp.next = temp.next.next;
+            }else
+            temp = temp.next;
+        }
+        return head;
+    }
 }
 
 
