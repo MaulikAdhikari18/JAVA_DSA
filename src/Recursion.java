@@ -16,6 +16,14 @@ public class Recursion {
         return isPowerOfThree(n/3);
     }
 
+    //Power of Four
+    public boolean isPowerOfFour(int n) {
+        if(n == 1)return true;
+        if(n <= 0)return false;
+        if(n%4 != 0)return false;
+        return isPowerOfFour(n/4);
+    }
+
     //Fibonacci series
     public static int fibo(int n){
         if (n == 1)
