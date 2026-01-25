@@ -58,6 +58,21 @@ public class Functions {
          return result;
     }
 
+    //First Unique Character
+    public int firstUniqChar(String s) {
+        int len = s.length();
+        outer:
+        for(int i = 0;i < len;i++){
+            for(int j = 0;j < len;j++){
+                if(i != j && s.charAt(i) == s.charAt(j)){
+                    continue outer;
+                }
+            }
+                return i;
+        }
+        return -1;
+    }
+
     
     public static void main(String[] args) {
         Scanner sc  = new Scanner(System.in);
