@@ -49,4 +49,19 @@ public class binaryTree {
         preOrder(list,root.left);
         preOrder(list,root.right);
     }
+
+    //PostOrder Traversal using list
+    public List<Integer> postorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        postOrder(list,root);
+        return list;
+    }
+
+    private void postOrder(List<Integer> list,TreeNode root){
+        if(root == null)return;
+        postOrder(list,root.left);
+        postOrder(list,root.right);
+
+        list.add(root.data);
+    }
 }
