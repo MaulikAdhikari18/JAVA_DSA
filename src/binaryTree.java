@@ -14,7 +14,7 @@ public class binaryTree {
             this.right = null;
         }
     }
-    Node root;
+    TreeNode root;
 
     //InOrder Traversal using list
     public List<Integer> inorderTraversal(TreeNode root) {
@@ -33,5 +33,20 @@ public class binaryTree {
         list.add(root.data);
 
         inOrder(root.right,list);
+    }
+
+    //PreOrder Traversal using list
+    public List<Integer> preorderTraversal(TreeNode root) {
+        List<Integer> list = new ArrayList<>();
+        preOrder(list,root);
+        return list;
+    }
+
+    private void preOrder(List<Integer> list,TreeNode root){
+        if(root == null)return;
+        list.add(root.data);
+
+        preOrder(list,root.left);
+        preOrder(list,root.right);
     }
 }
