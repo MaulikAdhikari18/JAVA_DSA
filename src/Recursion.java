@@ -40,4 +40,21 @@ public class Recursion {
         }
     }
 
+    //Print number of Ones
+    public int countDigitOne(int n) {
+        if(n <= 0)return 0;
+
+        String s = String.valueOf(n);
+        int len = s.length();
+        int firstDigit = s.charAt(0) - '0';
+        int power = (int) Math.pow(10, len - 1);
+        int rest = n - firstDigit * power;
+
+        if (firstDigit == 1) {
+            return countDigitOne(power - 1) + rest + 1 + countDigitOne(rest);
+        } else {
+                return firstDigit * countDigitOne(power - 1) + power + countDigitOne(rest);
+            }
+    }
+
 }
