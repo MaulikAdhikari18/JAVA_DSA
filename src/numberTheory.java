@@ -58,4 +58,18 @@ public class numberTheory{
         if(b == 0)return a;
         return GCD(b,a % b);
     }
+
+    //Exactly 3 divisors
+    public boolean isThree(int n) {
+        if(n < 4)return false;
+        int count;
+        if(n % 2 == 0){
+            count = 2;
+        }else count = 1;
+        for(int i = 3;i <= n;i++){
+            if(n%i == 0)count++;
+        }
+        if(count != 3)return false;
+        return true;
+    }
 }
