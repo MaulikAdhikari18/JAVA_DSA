@@ -72,4 +72,11 @@ public class numberTheory{
         if(count != 3)return false;
         return true;
     }
+
+    //Least Common Multiple of 2 and n
+    public int smallestEvenMultiple(int n) {
+        if(n == 1 || n == 2)return 2;
+        if(n % 2 == 0)return n;
+        return 2*n;
+    }
 }
