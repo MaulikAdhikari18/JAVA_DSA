@@ -79,4 +79,28 @@ public class numberTheory{
         if(n % 2 == 0)return n;
         return 2*n;
     }
+
+    //Number of Common Factors
+    public int commonFactors(int a, int b) {
+        int count = 0;
+        int n;
+        if(a>b)n = b;
+        else n = a;
+        for(int i = 1;i <= n;i++){
+            if(a%i == 0 && b%i == 0)
+            count++;
+        }
+        return count;
+    }
+
+    //#2
+    public int commonFactors2(int a, int b) {
+        int g = GCD(a,b);
+        int count = 0;
+        for(int i = 1;i <= g;i++){
+            if(g % i == 0)
+            count++;
+        }
+        return count;
+    }
 }
