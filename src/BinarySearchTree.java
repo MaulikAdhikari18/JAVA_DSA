@@ -19,35 +19,42 @@ class BSTNode{
         return searchBST(root.right,val);
     }
 
-    //Increasing order Search Tree
+    //Convert to Increasing order Search Tree
     public BSTNode increasingBST(BSTNode root) {
 
-    List<Integer> list = new ArrayList<>();
-    inOrder(list, root);
+        List<Integer> list = new ArrayList<>();
+        inOrder(list, root);
 
-    BSTNode newRoot = null;
-    BSTNode curr = null;
+        BSTNode newRoot = null;
+        BSTNode curr = null;
 
-    for (int val : list) {
-        BSTNode node = new BSTNode(val);
-        if (newRoot == null) {
-            newRoot = node;
-            curr = node;
-        } else {
-            curr.right = node;
-            curr = node;
+        for (int val : list) {
+            BSTNode node = new BSTNode(val);
+            if (newRoot == null) {
+                newRoot = node;
+                curr = node;
+            } else {
+                curr.right = node;
+                curr = node;
+            }
         }
+
+        return newRoot;
     }
 
-    return newRoot;
-}
+    private void inOrder(List<Integer> list, BSTNode root) {
+        if (root == null) return;
+        inOrder(list, root.left);
+        list.add(root.val);
+        inOrder(list, root.right);
+    }
 
-private void inOrder(List<Integer> list, BSTNode root) {
-    if (root == null) return;
-    inOrder(list, root.left);
-    list.add(root.val);
-    inOrder(list, root.right);
-}
+    //Kth smallest element in BST
+    public int kthSmallest(BSTNode root, int k) {
+        List<Integer> list = new ArrayList<>();
+        inOrder(list,root);
+        return list.get(k-1);
+    }
 }
 
 
