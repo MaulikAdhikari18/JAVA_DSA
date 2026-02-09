@@ -103,4 +103,41 @@ public class numberTheory{
         }
         return count;
     }
+
+    //Palindrome Prime
+    public int primePalindrome(int n) {
+        if (n <= 11 && n >= 8) return 11;
+
+        for (int i = n; ; i++) {
+            int len = String.valueOf(i).length();
+            if (len % 2 == 0) {
+                i = (int) Math.pow(10, len);
+                continue;
+        }
+            if (isPrime(i)){
+                if(isPalindrome(i))return i;
+            }
+        }
+    }
+
+    private boolean isPrime(int n){
+        if(n < 2)return false;
+        if(n == 2)return true;
+        if(n%2 == 0)return false;
+
+        for(int i = 3;i*i <= n;i += 2){
+            if(n%i == 0)return false;
+        }
+        return true;
+    }
+
+    private boolean isPalindrome(int n){
+        int pal = n;
+        int sum = 0;
+        while(pal != 0){
+            sum = sum * 10 + (pal % 10);
+            pal /= 10;  
+        }
+        return sum == n;
+    }
 }
