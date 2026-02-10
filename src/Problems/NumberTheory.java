@@ -1,5 +1,9 @@
+package Problems;
+
 import java.util.*;
-public class numberTheory{
+import java.util.Arrays;
+
+public class NumberTheory{
 
     //Add digits
     public int addDigits(int num) {

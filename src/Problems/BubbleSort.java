@@ -1,5 +1,8 @@
+package Problems;
+
 import java.util.*;
-public class bubbleSort {
+
+public class BubbleSort {
     public static void swap(int[] arr,int a,int b){
         int temp = arr[a];
         arr[a] = arr[b];

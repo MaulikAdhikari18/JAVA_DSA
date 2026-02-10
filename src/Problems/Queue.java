@@ -1,3 +1,5 @@
+package Problems;
+
 public class Queue {
     class Node{
         int data;

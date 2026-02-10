@@ -1,5 +1,7 @@
+package Problems;
+
 import java.util.*;
-public class conditionals {
+public class Conditionals {
     public static void main(String[] args) {
         System.out.print("Enter your SAP ID: ");
         int n;

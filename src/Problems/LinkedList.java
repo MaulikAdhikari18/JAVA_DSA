@@ -1,3 +1,5 @@
+package Problems;
+
 import java.util.*;
 
 class Node{
@@ -154,7 +156,7 @@ public Node deleteDuplicates(Node head) {
 
 
 //main
-public class linkedList{
+public class LinkedList{
     public static void main(String[] args) {
         lList list = new lList();
 

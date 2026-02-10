@@ -1,3 +1,5 @@
+package Problems;
+
 public class Matrices{
     
     public int[][] transpose(int[][] matrix) {

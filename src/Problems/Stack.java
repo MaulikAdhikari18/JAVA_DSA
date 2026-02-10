@@ -1,3 +1,5 @@
+package Problems;
+
 public class Stack{
     class Node {
         int data;

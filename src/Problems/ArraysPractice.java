@@ -1,5 +1,7 @@
+package Problems;
+
 import java.util.*;
-public class Arrays {
+public class ArraysPractice {
     public static void main(String[] args) {
         Scanner sc = new Scanner(System.in);
         System.out.println("Enter the size of array");

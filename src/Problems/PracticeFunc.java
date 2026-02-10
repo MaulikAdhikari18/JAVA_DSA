@@ -1,5 +1,7 @@
+package Problems;
+
 import java.util.*;
-public class practiceFunc {
+public class PracticeFunc {
     public static void avg(int a, int b, int c){
         float avg = (a+b+c)/3;
         System.out.println("Average of the number is: "+ avg);

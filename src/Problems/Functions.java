@@ -1,3 +1,5 @@
+package Problems;
+
 import java.util.*;
 public class Functions {
     public static void printName(String name){
