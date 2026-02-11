@@ -181,4 +181,19 @@ public class NumberTheory{
         }
         return -1;
     }
+
+    //Insert GCD between LinkedList
+    public Node insertGreatestCommonDivisors(Node head) {
+        if(head.next == null)return head;
+        Node temp1 = head;
+        Node temp2 = head.next;
+        while(temp2 != null){
+            Node newNode = new Node(GCD(temp1.data,temp2.data));
+            newNode.next = temp2;
+            temp1.next = newNode;
+            temp2 = temp2.next;
+            temp1 = temp1.next.next;
+        }
+        return head;
+    }
 }
