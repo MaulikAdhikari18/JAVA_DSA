@@ -150,6 +150,74 @@ public Node deleteDuplicates(Node head) {
         }
         return dummy.next;
     }
+
+//Palindrome LinkedList
+public boolean isPalindrome(Node head) {
+        if(head.next == null)return true;
+        int count = countNodes(head);
+        Node temp = head;
+        Node revLL = null;
+        for(int i = 0;i < count/2;i++){
+            Node newNode = new Node(temp.data);
+            newNode.next = revLL;
+            revLL = newNode;
+            temp = temp.next;
+        }
+        if (count % 2 == 1) {
+            temp = temp.next;
+        }
+        
+        while(revLL != null){
+            if(revLL.data != temp.data)return false;
+            revLL = revLL.next;
+            temp = temp.next;
+        }
+        return true;
+    }
+
+    private int countNodes(Node head){
+        int count = 0;
+        Node temp = head;
+        while(temp != null){
+            count++;
+            temp = temp.next;
+        }
+        return count;
+    }
+    
+//Palindrome LinkedList Optimal
+public boolean isPalindromeOpt(Node head) {
+    if (head == null || head.next == null) return true;
+
+    // Find middle
+    Node slow = head, fast = head;
+    while (fast != null && fast.next != null) {
+        slow = slow.next;
+        fast = fast.next.next;
+    }
+
+    // Reverse second half
+    Node prev = null;
+    while (slow != null) {
+        Node next = slow.next;
+        slow.next = prev;
+        prev = slow;
+        slow = next;
+    }
+
+    // Compare halves
+    Node left = head;
+    Node right = prev;
+
+    while (right != null) {
+        if (left.data != right.data) return false;
+        left = left.next;
+        right = right.next;
+    }
+
+    return true;
+}
+
 }
 
 
