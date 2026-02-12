@@ -217,6 +217,18 @@ public boolean isPalindromeOpt(Node head) {
 
     return true;
 }
+//Convert Binary Number in a Linked List to Integer
+public int getDecimalValue(Node head) {
+        if(head.next == null && head.data == 0)return 0;
+        double num = 0;
+        int i = countNodes(head) - 1;
+        while(head != null){
+            num = num + ((Math.pow(2,i)) * head.data);
+            head = head.next;
+            i--;
+        }
+        return (int)num;
+    }
 
 }
 
