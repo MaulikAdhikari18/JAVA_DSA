@@ -217,7 +217,7 @@ public boolean isPalindromeOpt(Node head) {
 
     return true;
 }
-//Convert Binary Number in a Linked List to Integer
+//Convert Binary Number in a Linked List to Decimal
 public int getDecimalValue(Node head) {
         if(head.next == null && head.data == 0)return 0;
         double num = 0;
@@ -230,6 +230,23 @@ public int getDecimalValue(Node head) {
         return (int)num;
     }
 
+    //Swapping Nodes
+    public Node swapNodes(Node head, int k) {
+        Node temp1 = head,temp2 = head;
+        
+        for(int i = 1;i < k;i++){
+            temp1 = temp1.next;
+        }
+        Node t = temp1;
+        while(t.next != null){
+            t = t.next;
+            temp2 = temp2.next;
+        }
+        int temp = temp2.data;
+        temp2.data = temp1.data;
+        temp1.data = temp;
+        return head;
+    }
 }
 
 
