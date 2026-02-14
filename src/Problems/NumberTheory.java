@@ -196,4 +196,19 @@ public class NumberTheory{
         }
         return head;
     }
+
+    //Maximum Prime Difference in Array
+    public int maximumPrimeDifference(int[] nums) {
+        int num1 = -1;
+        int num2 = -1;
+        for(int i = 0;i < nums.length;i++){
+            if(isPrime(nums[i])){
+                if(num1 == -1)
+                    num1 = i;
+                num2 = i;
+            }
+        }
+            if(num1 == num2)return 0;
+            return (num2 - num1);
+        }
 }
