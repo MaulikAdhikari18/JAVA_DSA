@@ -3,7 +3,8 @@ package Learnings;
 public class Sorting {
 
     //Bubble Sort
-    public static void bubbleSort(int []nums){// O(n^2)
+    // O(n^2)
+    public static void bubbleSort(int []nums){
         for(int j = 0;j < nums.length-1;j++){
             for(int i = 0;i < nums.length-j-1;i++){
                 if(nums[i+1] < nums[i]){
@@ -16,6 +17,7 @@ public class Sorting {
     }
 
     //Selection Sort
+    // O(n^2)
     public static void selectionSort(int []nums){
         
         for(int i = 0;i < nums.length-1;i++){
@@ -26,6 +28,20 @@ public class Sorting {
             int temp = nums[min];
             nums[min] = nums[i];
             nums[i] = temp;
+        }
+    }
+
+    //Insertion Sort
+    //O(n^2)
+    public static void insertionSort(int []nums){
+        for(int i = 1;i < nums.length;i++){
+            int current = nums[i];
+            int j = i-1;
+            while(j >= 0 && current < nums[j]){
+                nums[j+1] = nums[j];
+                j--;
+            }
+            nums[j+1] = current;
         }
     }
 
@@ -40,7 +56,8 @@ public class Sorting {
         System.out.print("Original Array:");
         printArray(arr);
         //bubbleSort(arr);
-        selectionSort(arr);
+        //selectionSort(arr);
+        insertionSort(arr);
         System.out.print("\nSorted Array:");
         printArray(arr);
     }
