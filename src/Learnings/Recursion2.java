@@ -1,5 +1,7 @@
 package Learnings;
 
+import java.util.HashSet;
+
 public class Recursion2 {
 
     //Tower Of Hanoi
@@ -90,16 +92,49 @@ public class Recursion2 {
         subsequences(str, idx+1, newString);
     }
 
+    //Unique SubSequences
+    public static void uniqueSubsequences(String str,int idx,String newString,HashSet<String> set){
+        if(idx == str.length()){
+            if(set.contains(newString)){
+                return;
+            }else{
+                System.out.println(newString);
+                set.add(newString);
+                return;
+            }
+        }
+        char currChar = str.charAt(idx);
+        uniqueSubsequences(str, idx+1, newString+currChar,set);
+        uniqueSubsequences(str, idx+1, newString,set);
+    }
+
+    //Keypad combinations
+    public static String[] keypad = {"_",".","abc","def","ghi","jkl","mno","pqrs","tuv","wxyz",};
+    public static void printComb(String str,int idx,String combination){
+        if(idx == str.length()){
+            System.out.println(combination);
+            return;
+        }
+        char currChar = str.charAt(idx);
+        String mapping = keypad[currChar - '0'];
+
+        for(int i = 0;i < mapping.length();i++){
+            printComb(str, idx+1, combination+mapping.charAt(i));
+        }
+    }
+
     public static void main(String[] args) {
+        HashSet<String> set = new HashSet<>();
         //int n = 3;
         //towerOfHanoi(n, "S", "H", "D");
-        String s = "abcde";
+        String s = "34";
         //printReverseString(s,s.length()-1);
         // firstLastOccur(s, 0,'a' );
         // System.out.println("First index: "+first);
         // System.out.println("Last index: "+last);
         //moveX(s, 0, 0, "");
         //removeDuplicates(s, 0, "");
-        subsequences(s, 0, "");
+        //uniqueSubsequences(s, 0, "",set);
+        printComb(s, 0, "");
     }
 }
