@@ -79,15 +79,27 @@ public class Recursion2 {
         }
     }
 
+    //SubSequences
+    public static void subsequences(String str,int idx,String newString){
+        if(idx == str.length()){
+            System.out.println(newString);
+            return;
+        }
+        char currChar = str.charAt(idx);
+        subsequences(str, idx+1, newString+currChar);
+        subsequences(str, idx+1, newString);
+    }
+
     public static void main(String[] args) {
         //int n = 3;
         //towerOfHanoi(n, "S", "H", "D");
-        String s = "xaxbcdefgxhxi";
+        String s = "abcde";
         //printReverseString(s,s.length()-1);
         // firstLastOccur(s, 0,'a' );
         // System.out.println("First index: "+first);
         // System.out.println("Last index: "+last);
         //moveX(s, 0, 0, "");
-        removeDuplicates(s, 0, "");
+        //removeDuplicates(s, 0, "");
+        subsequences(s, 0, "");
     }
 }
