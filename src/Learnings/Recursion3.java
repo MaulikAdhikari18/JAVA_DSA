@@ -24,12 +24,33 @@ public class Recursion3 {
         int downPath = countPaths(i+1, j, n, m);
 
         //move right
-        int rightPath = countPaths(i, j+1, downPath, m);
+        int rightPath = countPaths(i, j+1, n, m);
         return downPath + rightPath;
     }
 
+    //Place Tiles
+    //Tile size 1Xm
+    public static int placeTiles(int n,int m){
+        if(n == m)return 2;
+        if(n < m)return 1;
+
+        //vertically
+        int verTiles = placeTiles(n-m, m);
+
+        //horizontally
+        int horTiles = placeTiles(n-1, m);
+
+        return verTiles + horTiles;
+    }
+
     public static void main(String[] args) {
-        String str = "abc";
-        printPerm(str, "");
+        //String str = "abc";
+        //printPerm(str, "");
+        int n = 5;
+        int m = 2;
+       //int totalPaths = countPaths(0, 0, n, m);
+       int totalWays = placeTiles(n, m);
+       System.out.println(totalWays);
     }
 }
+
