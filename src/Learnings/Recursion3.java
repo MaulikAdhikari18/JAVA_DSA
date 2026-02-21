@@ -1,5 +1,7 @@
 package Learnings;
 
+import java.util.ArrayList;
+
 public class Recursion3 {
     public static void printPerm(String str,String permutation){
         if(str.length() == 0){
@@ -56,14 +58,40 @@ public class Recursion3 {
         return singleGuest + pairGuest;
     }
 
+    //Print Subsets
+    public static void printSubset(ArrayList<Integer> subset){
+        for(int i = 0;i < subset.size();i++){
+            System.out.print(subset.get(i)+" ");
+        }
+        System.out.println();
+    }
+
+    //Find Subsets of n Natural Numbers
+    public static void findSubsets(int n,ArrayList<Integer> subset){
+        if(n == 0){
+            printSubset(subset);
+            return;
+        }
+
+        //If added
+        subset.add(n);
+        findSubsets(n-1, subset);
+
+        //If not added
+        subset.remove(subset.size()-1);
+        findSubsets(n-1, subset);
+    }
+
     public static void main(String[] args) {
         //String str = "abc";
         //printPerm(str, "");
+        ArrayList<Integer> subset = new ArrayList<>();
         int n = 5;
         int m = 2;
        //int totalPaths = countPaths(0, 0, n, m);
        //int totalWays = placeTiles(n, m);
        System.out.println(inviteGuests(n));
+       findSubsets(m, subset);
     }
 }
 
