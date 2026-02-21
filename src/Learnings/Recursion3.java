@@ -43,14 +43,27 @@ public class Recursion3 {
         return verTiles + horTiles;
     }
 
+    //Invite Guests
+    public static int inviteGuests(int n){
+        if(n <= 1)return 1;
+
+        //Single
+        int singleGuest = inviteGuests(n-1);
+
+        //Pair
+        int pairGuest = (n-1) * inviteGuests(n-2);
+
+        return singleGuest + pairGuest;
+    }
+
     public static void main(String[] args) {
         //String str = "abc";
         //printPerm(str, "");
         int n = 5;
         int m = 2;
        //int totalPaths = countPaths(0, 0, n, m);
-       int totalWays = placeTiles(n, m);
-       System.out.println(totalWays);
+       //int totalWays = placeTiles(n, m);
+       System.out.println(inviteGuests(n));
     }
 }
 
