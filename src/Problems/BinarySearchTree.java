@@ -61,7 +61,7 @@ class BSTNode{
     //Valid BST
     long prev = Long.MIN_VALUE;
 
-    public boolean isValidBST(TreeNode root) {
+    public boolean isValidBST(BSTNode root) {
         if (root == null) return true;
 
         if (!isValidBST(root.left)) return false;
