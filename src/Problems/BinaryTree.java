@@ -91,4 +91,13 @@ public class BinaryTree{
         if(left.data != right.data)return false;
         return isMirror(left.left,right.right) && isMirror(left.right,right.left);
     }
+
+    //Maximum Depth
+    public int maxDepth(TreeNode root) {
+        if(root == null)return 0;
+        int left = maxDepth(root.left);
+        int right = maxDepth(root.right);
+
+        return 1 + Math.max(left,right);
+    }
 }
