@@ -28,4 +28,16 @@ public class Strings {
         }
         return 0;
     }
+
+    //Length Of Last Word
+    public int lengthOfLastWord(String s) {
+        int count = 0, i = s.length()-1;
+
+        while(i >= 0 && s.charAt(i) == ' ')i--;
+        while(i >= 0 && s.charAt(i) != ' '){
+            count++;
+            i--;
+        }
+        return count;
+    }
 }
