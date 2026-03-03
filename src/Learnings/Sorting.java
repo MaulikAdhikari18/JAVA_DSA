@@ -51,13 +51,49 @@ public class Sorting {
         }
     }
 
+    //Merge Sort
+    public static void conquer(int[] arr,int si,int mid,int ei){
+        int []merged = new int[ei - si + 1];
+        int i = si;
+        int j = mid+1;
+        int k = 0;
+
+        while(i <= mid && j <= ei){
+            if(arr[i] <= arr[j]){
+                merged[k++] = arr[i++];
+            }else{
+                merged[k++] = arr[j++];
+            }
+        }
+
+        while(i <= mid){
+            merged[k++] = arr[i++];
+        }
+
+        while(j <= ei){
+            merged[k++] = arr[j++];
+        }
+
+        for(int l = 0,m = 0;i < merged.length;l++,m++){
+            arr[l] = merged[m];
+        }
+    }
+    public static void divide(int[] arr,int si,int ei){
+        if(si >= ei)return;
+        int mid = si + (ei - si)/2;
+        divide(arr,si,mid);
+        divide(arr,mid+1,ei);
+        conquer(arr,si,mid,ei);
+    }
+
     public static void main(String[] args) {
         int arr[] = {23,12,62,46,34,98,54,29};
         System.out.print("Original Array:");
         printArray(arr);
         //bubbleSort(arr);
         //selectionSort(arr);
-        insertionSort(arr);
+        //insertionSort(arr);
+        divide(arr,0,arr.length-1);
         System.out.print("\nSorted Array:");
         printArray(arr);
     }
