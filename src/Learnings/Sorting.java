@@ -52,7 +52,7 @@ public class Sorting {
     }
 
     //Merge Sort
-    public static void conquer(int[] arr,int si,int mid,int ei){
+    public static void merge(int[] arr,int si,int mid,int ei){
         int []merged = new int[ei - si + 1];
         int i = si;
         int j = mid+1;
@@ -74,16 +74,47 @@ public class Sorting {
             merged[k++] = arr[j++];
         }
 
-        for(int l = 0,m = 0;i < merged.length;l++,m++){
+        for(int l = si,m = 0;m < merged.length;l++,m++){
             arr[l] = merged[m];
         }
     }
-    public static void divide(int[] arr,int si,int ei){
+
+    public static void mergeSort(int[] arr,int si,int ei){
         if(si >= ei)return;
         int mid = si + (ei - si)/2;
-        divide(arr,si,mid);
-        divide(arr,mid+1,ei);
-        conquer(arr,si,mid,ei);
+        mergeSort(arr,si,mid);
+        mergeSort(arr,mid+1,ei);
+        merge(arr,si,mid,ei);
+    }
+
+    //Quick Sort
+    public static int partition(int[] arr,int low,int high){
+        int pivot = arr[high];
+        int i = low-1;
+
+        for(int j = low;j < high;j++){
+            if(arr[j] < pivot){
+                i++;
+                //swap
+                int temp = arr[i];
+                arr[i] = arr[j];
+                arr[j] = temp;
+            }
+        }
+        i++;
+        int temp = arr[i];
+        arr[i] = arr[high];
+        arr[high] = temp;
+        return i;
+    }
+
+    public static void quickSort(int[] arr,int low,int high){
+        if(low < high){
+            int pivot = partition(arr,low,high);
+
+            quickSort(arr, low, pivot - 1);
+            quickSort(arr, pivot+1, high);
+        }
     }
 
     public static void main(String[] args) {
@@ -93,7 +124,8 @@ public class Sorting {
         //bubbleSort(arr);
         //selectionSort(arr);
         //insertionSort(arr);
-        divide(arr,0,arr.length-1);
+        //mergeSort(arr,0,arr.length-1);
+        quickSort(arr,0,arr.length-1);
         System.out.print("\nSorted Array:");
         printArray(arr);
     }
