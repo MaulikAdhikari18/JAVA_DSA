@@ -53,7 +53,7 @@ public class Backtracking {
 
     public void saveBoard(char[][] board,List<List<String>> allBoards){
         String row = "";
-        List<String> newBoard = new ArrayList<>();
+        List<String> newBoard = new ArrayLists<>();
 
         for(int i = 0;i < board.length;i++){
             row = "";
@@ -83,7 +83,7 @@ public class Backtracking {
     }
 
     public List<List<String>> solveNQueens(int n){
-        List<List<String>> allBoards = new ArrayList<>();
+        List<List<String>> allBoards = new ArrayLists<>();
         char [][] board = new char[n][n];
 
         helper(board,allBoards,0);
