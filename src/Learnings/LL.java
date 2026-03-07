@@ -12,8 +12,10 @@ public class LL {
         }
     }
 
+    Node head;
+
     //Add First
-    public void insertAtFront(Node head,int data){
+    public void insertAtFront(int data){
         Node newNode = new Node(data);
         if(head == null){
             head = newNode;
@@ -24,10 +26,10 @@ public class LL {
     }
 
     //Add Last
-    public void insertAtEnd(Node head,int data){
+    public void insertAtEnd(int data){
         Node newNode = new Node(data);
         if(head == null){
-            insertAtFront(head, data);
+            insertAtFront(data);
             return;
         }
         Node temp = head;
@@ -36,8 +38,21 @@ public class LL {
         }
         temp.next = newNode;
     }
+
+    //Print List
+    public void printList(){
+        while(head != null){
+            System.out.print(head.data+" -> ");
+            head = head.next;
+        }
+        System.out.println("null");
+    }
     
     public static void main(String[] args) {
         LL list = new LL();
+        list.insertAtFront(10);
+        list.insertAtEnd(20);
+        list.insertAtEnd(30);
+        list.printList();
     }
 }
