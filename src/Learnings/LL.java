@@ -20,7 +20,7 @@ public class LL {
     }
 
     //Add First
-    public void insertAtFront(int data){
+    public void addFirst(int data){
         Node newNode = new Node(data);
         size++;
         if(head == null){
@@ -32,11 +32,11 @@ public class LL {
     }
 
     //Add Last
-    public void insertAtEnd(int data){
+    public void addLast(int data){
         Node newNode = new Node(data);
         size++;
         if(head == null){
-            insertAtFront(data);
+            addFirst(data);
             return;
         }
         Node temp = head;
@@ -47,14 +47,14 @@ public class LL {
     }
 
     //Delete First
-    public void deleteFirst(){
+    public void removeFirst(){
         if(head == null)return;
         size--;
         head = head.next;
     }
 
     //Delete Last
-    public void deleteLast(){
+    public void removeLast(){
         if(head == null)return;
         size--;
         Node prev = null;
@@ -87,17 +87,17 @@ public class LL {
     
     public static void main(String[] args) {
         LL list = new LL();
-        list.insertAtFront(10);
-        list.insertAtEnd(20);
-        list.insertAtEnd(30);
+        list.addFirst(10);
+        list.addFirst(20);
+        list.addLast(30);
         list.printList();
         System.out.println("Size: "+list.getSize());
 
-        list.deleteLast();
+        list.removeLast();
         list.printList();
         System.out.println("Size: "+list.getSize());
 
-        list.insertAtFront(90);
+        list.addLast(90);
         list.printList();
         System.out.println("Size: "+list.getSize());
     }
