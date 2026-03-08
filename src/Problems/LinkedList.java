@@ -247,6 +247,32 @@ public int getDecimalValue(Node head) {
         temp1.data = temp;
         return head;
     }
+
+    //Merge k Sorted Lists
+    public Node mergeKLists(Node[] lists) {
+        PriorityQueue<Node> pq =
+            new PriorityQueue<>((a, b) -> a.data - b.data);
+
+        for(Node node : lists){
+            if(node != null)
+                pq.add(node);
+        }
+
+        Node dummy = new Node(0);
+        Node tail = dummy;
+
+        while(!pq.isEmpty()){
+            Node smallest = pq.poll();
+
+            tail.next = smallest;
+            tail = tail.next;
+
+            if(smallest.next != null)
+                pq.add(smallest.next);
+        }
+
+        return dummy.next;
+    }
 }
 
 
