@@ -1,5 +1,8 @@
 package Problems;
 
+import java.util.ArrayList;
+import java.util.List;
+
 public class Recursion {
 
     //Power of two
@@ -57,6 +60,43 @@ public class Recursion {
         } else {
                 return firstDigit * countDigitOne(power - 1) + power + countDigitOne(rest);
             }
+    }
+
+    //2094. Finding 3-Digit Even Numbers
+    public int[] findEvenNumbers(int[] digits) {
+        int[] freq = new int[10];
+
+        for(int d : digits)
+        freq[d]++;
+
+        List<Integer> result = new ArrayList<>();
+
+        for(int i = 100;i <= 999;i++){
+            if(i % 2 != 0)continue;
+
+            int a = i/100;
+            int b = (i/10) % 10;
+            int c = i % 10;
+
+            int[] count = new int[10];
+            count[a]++;
+            count[b]++;
+            count[c]++;
+
+            boolean valid = true;
+            for(int d = 0;d < 10;d++){
+                if(count[d] > freq[d]){
+                    valid = false;
+                    break;
+                }
+            }
+            if(valid)result.add(i);
+        }
+        int[] ans = new int[result.size()];
+        for(int i = 0;i < result.size();i++){
+            ans[i] = result.get(i);
+        }
+        return ans;
     }
 
 }
