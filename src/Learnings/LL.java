@@ -84,6 +84,24 @@ public class LL {
     public int getSize(){
         return size;
     }
+
+    //Reverse List Iterate
+    public void reverseIterate(){
+        if(head == null || head.next == null)return;
+
+        Node prev = head;
+        Node curr = head.next;
+        while(curr != null){
+            Node next = curr.next;
+            curr.next = prev;
+
+            //update
+            prev = curr;
+            curr = next;
+        }
+        head.next = null;
+        head = prev;
+    }
     
     public static void main(String[] args) {
         LL list = new LL();
@@ -100,5 +118,8 @@ public class LL {
         list.addLast(90);
         list.printList();
         System.out.println("Size: "+list.getSize());
+
+        list.reverseIterate();
+        list.printList();
     }
 }

@@ -102,7 +102,7 @@ public class BinaryTree{
         return 1 + Math.max(left,right);
     }
 
-    //Leaf-Similar Trees
+    //872.Leaf-Similar Trees
     public boolean leafSimilar(TreeNode root1, TreeNode root2) {
         
         List<Integer> leaves1 = new ArrayList<>();
