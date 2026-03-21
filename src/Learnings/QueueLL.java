@@ -52,7 +52,6 @@ public class QueueLL {
                 System.out.println("Queue Empty");
                 return -1;
             }
-
             return head.data;
         }
     }
