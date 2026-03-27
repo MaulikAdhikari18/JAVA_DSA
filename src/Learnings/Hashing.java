@@ -25,6 +25,9 @@ public class Hashing {
         //Size
         System.out.println("Size of set is: "+set.size());
 
+        //Print all Elements
+        System.out.println(set);
+
         //Iterator
         Iterator it = set.iterator();
 

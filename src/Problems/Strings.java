@@ -136,4 +136,21 @@ public class Strings {
         return result.reverse().toString();
     }
 
+    //2788. SPlit Strings by Separator
+    public List<String> splitWordsBySeparator(List<String> words, char separator) {
+        List<String> result = new ArrayList<>();
+
+        for(String word : words){
+
+            String[] parts = word.split("\\" + separator);
+
+            for(String p : parts){
+                if(!p.isEmpty())
+                    result.add(p);
+            }
+        }
+
+        return result;
+    }
+
 }
