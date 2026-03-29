@@ -15,7 +15,7 @@ public class TwoPointers {
         return false;
     }
 
-    //Move Zeros
+    //23.Move Zeros
     public void moveZeroes(int[] nums) {
         int pos = 0;
 
@@ -67,4 +67,6 @@ public class TwoPointers {
 
         return result;
     }
+
+
 }
