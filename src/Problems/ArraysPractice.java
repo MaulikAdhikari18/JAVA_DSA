@@ -155,4 +155,18 @@ public class ArraysPractice {
         }
         return -1;
     }
+
+    //1827. Minimum Operations to make the array Increasing
+    public int minOperations(int[] nums) {
+        int count = 0;
+        if(nums.length == 1)return 0;
+        for(int i = 1;i< nums.length;i++){
+            if(nums[i] <= nums[i-1]) {
+                int increment = nums[i-1] + 1 - nums[i];
+                count += increment;
+                nums[i] = nums[i-1] + 1;
+            }
+        }
+        return count;
+    }
 }
