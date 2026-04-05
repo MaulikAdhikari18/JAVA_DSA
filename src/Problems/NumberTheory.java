@@ -222,4 +222,39 @@ public class NumberTheory{
         }
         return gcd == 1;
     }
+
+    //1201. Ugly Number III
+     public int nthUglyNumber(int n, int a, int b, int c) {
+        long left = 1;
+        long right = (long) 2e9;
+
+        long ab = lcm(a, b);
+        long bc = lcm(b, c);
+        long ac = lcm(a, c);
+        long abc = lcm(a, bc);
+
+        while (left < right) {
+            long mid = left + (right - left) / 2;
+
+            long count = mid/a + mid/b + mid/c
+                    - mid/ab - mid/bc - mid/ac
+                    + mid/abc;
+
+            if (count < n)
+                left = mid + 1;
+            else
+                right = mid;
+        }
+
+        return (int) left;
+    }
+
+    private long gcd(long x, long y) {
+        if (y == 0) return x;
+        return gcd(y, x % y);
+    }
+
+    private long lcm(long x, long y) {
+        return x * y / gcd(x, y);
+    }
 }
